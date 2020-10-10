@@ -19,12 +19,21 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        return Task::create($request->all());
+        $task = new Task();
+        $task->title = $request->title;
+        $task->content = $request->content;
+        $task->person_in_charge = $request->person_in_charge;
+        $task->save();
+        // return Task::create($request->all());
+        return $task;
     }
 
     public function update(Request $request, Task $task)
     {
-        $task->update($request->all());
+        $task->title = $request->title;
+        $task->content = $request->content;
+        $task->person_in_charge = $request->person_in_charge;
+        $task->save();
 
         return $task;
     }
