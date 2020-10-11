@@ -4,6 +4,7 @@ import TaskListComponent from "./components/TaskListComponent";
 import TaskShowComponent from "./components/TaskShowComponent";
 import TaskCreateComponent from "./components/TaskCreateComponent";
 import TaskEditComponent from "./components/TaskEditComponent";
+import TopComponent from "./components/TopComponent";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -19,6 +20,11 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [
+        {
+            path: '/',
+            name: 'top',
+            component: TopComponent
+        },
         {
             path: '/tasks',
             name: 'task.list',
