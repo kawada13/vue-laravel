@@ -21,15 +21,17 @@
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="basicExampleNav">
       <!-- Links -->
-      <form class="form-inline ml-auto">
+      <form class="form-inline ml-auto" @submit.prevent="submit">
         <div class="md-form my-0">
           <input
             class="form-control mr-sm-2"
             type="text"
-            placeholder="検索する"
+            placeholder="タイトルを検索"
             aria-label="Search"
+            v-bind="keyword"
           />
         </div>
+        <input type="submit">
       </form>
     </div>
     <!-- Collapsible content -->
@@ -38,5 +40,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: function () {
+    return {
+      keyword: "",
+    };
+  },
+  methods: {
+    submit() {
+      axios.post("/api/tasks/search", this.keyword).then((res) => {
+        console.log(res.data);
+      });
+    },
+  },
+};
 </script>

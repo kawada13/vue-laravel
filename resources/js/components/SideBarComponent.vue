@@ -16,5 +16,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: function () {
+    return {
+      task: {},
+    };
+  },
+  methods: {
+    submit() {
+      // console.log(this.task)
+      axios.post("/api/tasks", this.task).then((res) => {
+        console.log(res.data);
+        this.$router.push({ name: "task.list" });
+      });
+    },
+  },
+};
 </script>

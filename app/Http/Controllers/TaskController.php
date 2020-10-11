@@ -22,7 +22,6 @@ class TaskController extends Controller
         $task = new Task();
         $task->title = $request->title;
         $task->content = $request->content;
-        $task->person_in_charge = $request->person_in_charge;
         $task->save();
         // return Task::create($request->all());
         return $task;
@@ -32,7 +31,6 @@ class TaskController extends Controller
     {
         $task->title = $request->title;
         $task->content = $request->content;
-        $task->person_in_charge = $request->person_in_charge;
         $task->save();
 
         return $task;
@@ -43,5 +41,12 @@ class TaskController extends Controller
         $task->delete();
 
         return $task;
+    }
+
+    public function search(Request $request)
+    {
+        $tasks = Task::where('title', 'like', "%$request->keyword%")->get();
+
+        return $tasks;
     }
 }
