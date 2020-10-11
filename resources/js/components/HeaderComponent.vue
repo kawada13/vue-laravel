@@ -21,25 +21,12 @@
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="basicExampleNav">
       <!-- Links -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link v-bind:to="{ name: 'task.list' }">
-            <a class="nav-link" href="#">list</a>
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link v-bind:to="{ name: 'task.create' }">
-            <a class="nav-link" href="#">create a task</a>
-          </router-link>
-        </li>
-      </ul>
-
-      <form class="form-inline">
+      <form class="form-inline ml-auto">
         <div class="md-form my-0">
           <input
             class="form-control mr-sm-2"
             type="text"
-            placeholder="Search"
+            placeholder="検索する"
             aria-label="Search"
           />
         </div>
